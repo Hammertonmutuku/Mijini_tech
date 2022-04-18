@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../constants/routes.dart';
+
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
 
@@ -8,10 +10,28 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
+  //editing Controllers
+  late final TextEditingController _emailController;
+  late final TextEditingController _passwordController;
+
+  @override
+  void initState() {
+    _emailController = TextEditingController();
+    _passwordController = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
-    double h = MediaQuery.of(context).size.height;
+    // double h = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(title: const Text('Login Page')),
@@ -34,6 +54,7 @@ class _LoginViewState extends State<LoginView> {
                 TextField(
                   autofocus: false,
                   keyboardType: TextInputType.emailAddress,
+                  controller: _emailController,
                   textInputAction: TextInputAction.next,
                   decoration: InputDecoration(
                       prefixIcon: const Icon(Icons.mail),
@@ -41,12 +62,13 @@ class _LoginViewState extends State<LoginView> {
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30))),
                 ),
-              const  SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 TextField(
                   autofocus: false,
                   obscureText: true,
+                  controller: _passwordController,
                   textInputAction: TextInputAction.next,
                   decoration: InputDecoration(
                       prefixIcon: const Icon(Icons.vpn_key),
@@ -54,7 +76,7 @@ class _LoginViewState extends State<LoginView> {
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30))),
                 ),
-               const SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Row(
@@ -71,7 +93,7 @@ class _LoginViewState extends State<LoginView> {
                     ),
                   ],
                 ),
-               const SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Material(
@@ -98,9 +120,12 @@ class _LoginViewState extends State<LoginView> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                   const  Text("Don't have an account?"),
+                    const Text("Don't have an account?"),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).pushNamedAndRemoveUntil(
+                            registerRoute, (route) => false);
+                      },
                       child: const Text(
                         "Sign Up!",
                         style: TextStyle(
