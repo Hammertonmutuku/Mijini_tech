@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "780268495815",
+    "project_id": "mijinitech-ab0a8",
+    "storage_bucket": "mijinitech-ab0a8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:780268495815:android:7ee59bc3492ee335a8afe2",
+        "android_client_info": {
+          "package_name": "com.example.mijini_tech"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "780268495815-9vhi6p4i080qhf4d1aev6fog0bt8rbir.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBns8yWeBlY8_K5hTh6qpqzXsPPtdPLlP8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "780268495815-9vhi6p4i080qhf4d1aev6fog0bt8rbir.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
